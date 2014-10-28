@@ -1,0 +1,3 @@
+== Rails Backend API
+
+Rails backend for ionic mobile frontend. Simple storage app, automatically sends files to AWS S3.

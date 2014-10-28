@@ -1,0 +1,21 @@
+<ion-view title="OlaEnT@xis - Σύνδεση Χρήστη">
+  <div class="bar bar-loading bar-dark" ng-if="loading">
+    Παρακαλώ περιμένετε...
+  </div>
+  <div class="bar bar-loading bar-assertive" ng-if="error_message">
+  {{error_message}}
+  </div>
+  <ion-content class="padding">
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" class="email_input" placeholder="Email" ng-model="user.email">
+      </label>
+      <label class="item item-input">
+        <input type="password" class="password_input" placeholder="Κωδικός" ng-model="user.password">
+      </label>
+      <br />
+
+      <button class="button button-block button-positive login_button" ng-click="login(user)">Σύνδεση</button>
+    </div>
+  </ion-content>
+</ion-view>

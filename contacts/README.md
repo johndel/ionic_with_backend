@@ -1,0 +1,1 @@
+Playing with angular, simple CRUD app with rails backend and angular frontend. Nothing special.

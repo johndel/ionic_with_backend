@@ -1,0 +1,15 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.sessions, .registrations {
+}
+
+.documents .fields {
+  border: 1px solid #ccc;
+  margin: 5px 0 0 0;
+  padding: 10px;
+}
+
+.add_document .add_nested_fields {
+  margin: 20px 0 0 0;
+}

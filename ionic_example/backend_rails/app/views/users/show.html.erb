@@ -1,0 +1,28 @@
+<h1>Email: <%= current_user.email %></h1>
+<div>
+<table class="table table-striped table-hover table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Περιγραφή</th>
+      <th>Είδος Αρχείου</th>
+      <th>Μέγεθος Αρχείου</th>
+      <th>Δημιουργήθηκε</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.uploads.order("created_at DESC").each do |upload| %>
+      <tr>
+        <td><%= link_to "Αποθήκευση Αρχείου", upload.upload_url, class: "btn btn-success" %></td>
+        <td><%= upload.description %></td>
+        <td><%= upload.content_type %></td>
+        <td><%= upload.beautify_file_size %></td>
+        <td><%= upload.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+</div>

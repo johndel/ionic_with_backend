@@ -1,0 +1,53 @@
+<%= nested_form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> δεν επέτρεψαν στην εγγραφή να αποθηκευτεί:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+  <div class="form-group">
+    <%= f.password_field :password, class: "form-control", placeholder: "Κωδικός", autocomplete: "off" %>
+  </div>
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Επαλήθευση κωδικού", autocomplete: "off" %>
+  </div>
+
+
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :active %> Ενεργός
+    </label>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :admin %> Admin
+    </label>
+  </div>
+
+  <div class="form-group documents">
+    <%= f.fields_for :uploads do |u| %>
+      <%= link_to "Αρχείο #{u.object.id}", u.object.upload_url unless u.object.new_record?  %>
+      <%= u.text_field :description, class: "form-control", placeholder: "Περιγραφή αρχείου" %>
+      <br />
+      <%= u.link_to_remove "Αφαίρεση Αρχείου", class: "btn btn-danger btn-xs" %>
+      <%= u.file_field :upload %>
+    <% end %>
+    <br />
+    <div class="add_document"><%= f.link_to_add "Προσθήκη Αρχείου", :uploads, class: "btn btn-primary btn-xs" %></div>
+  </div>
+
+  <br />
+  <div class="actions pull-right">
+    <%= f.submit "Αποθήκευση Χρήστη", class: "btn btn-success" %>
+  </div>
+<% end %>

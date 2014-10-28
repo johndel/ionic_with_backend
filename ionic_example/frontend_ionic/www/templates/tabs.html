@@ -1,0 +1,16 @@
+<ion-tabs class="tabs-icon-top">
+  <ion-tab title="Σύνδεση Χρήστη" class="tab_login first_state" icon="icon ion-log-in" href="#/tab/login" >
+    <ion-nav-view name="tab-login"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="OlaEnT@xis" class="tab_about" icon="icon ion-briefcase" href="#/tab/about">
+    <ion-nav-view name="tab-about"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Αρχεία Χρήστη" class="tab_user logged_state" icon="icon ion-home" href="#/tab/user">
+    <ion-nav-view name="tab-user"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Έξοδος Χρήστη" class="tab_logout logged_state" icon="icon ion-log-out" href="#/tab/logout" ng-controller="LogoutCtrl" ng-click="logout()">
+  </ion-tab>
+</ion-tabs>

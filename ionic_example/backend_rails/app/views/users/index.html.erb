@@ -1,0 +1,37 @@
+<h1>Εμφάνιση Χρηστών</h1>
+<div><%= link_to "Νέος Χρήστης", new_user_path, class: "btn btn-primary" %><br /><br /></div>
+<table class="table table-striped table-hover table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Admin</th>
+      <th>Ενεργός</th>
+      <th>Δημιουργήθηκε</th>
+      <th>Τελευταία σύνδεση</th>
+      <th>Πόσες φορές συνδέθηκε</th>
+      <th>Τελευταία Σύνδεση IP</th>
+      <th>Panel χρήστη</th>
+      <th>Επεξεργασία</th>
+      <th>Διαγράφη</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.admin? ? "Ναι" : "Όχι" %></td>
+        <td><%= user.active? ? "Ναι" : "Όχι" %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.current_sign_in_ip %></td>
+        <td><%= link_to 'Τι βλέπει ο χρήστης', user_path(user), class: "btn" %></td>
+        <td><%= link_to 'Επεξεργασία', edit_user_path(user), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Διαγραφή', user_path(user), method: :delete, data: { confirm: 'Είσαι σίγουρος;' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users, :theme => 'twitter-bootstrap-3' %>

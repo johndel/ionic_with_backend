@@ -1,0 +1,23 @@
+<h2>Σύνδεση Χρήστη</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), role: "form") do |f| %>
+  <div class="form-group"><%= f.label :email, "Email" %><br />
+  <%= f.email_field :email, autofocus: true, placeholder: "Δώστε email", class: "form-control" %></div>
+
+  <div class="form-group"><%= f.label :password, "Κωδικός" %><br />
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Επιβεβαίωση κωδικού", class: "form-control" %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :remember_me %> Κράτα με συνδεδεμένο
+      </label>
+    </div>
+  <% end -%>
+
+  <div><%= f.submit "Σύνδεση", class: "btn btn-primary" %></div>
+<% end %>
+
+<div>
+  <%= render "devise/shared/links" %>
+</div>

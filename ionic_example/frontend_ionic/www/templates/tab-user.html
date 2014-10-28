@@ -1,0 +1,15 @@
+<ion-view title="OlaEnT@xis - Αρχεία Χρήστη">
+  <ion-content class="padding">
+    <div class="card" ng-repeat="upload in user.uploads">
+      <div class="item item-divider">
+        <button class="button button-small button-positive" ng-click="click_link(upload.url)">Αποθήκευση Αρχείου</button>
+      </div>
+      <div class="item item-text-wrap">
+        {{upload.description}}<br />
+        <strong>Μέγεθος Αρχείου:</strong> {{upload.file_size}}
+        <br />
+        <strong>Ανέβηκε:</strong> {{upload.created_at}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
